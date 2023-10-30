@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap');
+
+body, html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  grid-template: "body";
+  place-content: center;
+  place-items: center;
+  margin: 0;
+
+
+  > * {
+    grid-area: body;
+  }
+
+  
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: inherit;
+  }
+}
+
+.App {
+  --duration:1000ms;
+  --text-shadow-color:hsl(0 0% 100%);
+  position: relative;
+  display: inline-block;
+  font-family: "Londrina Solid", sans-serif;
+  font-size: min(10vw, 10rem);
+  text-shadow: 0.006em -0.006em 0 var(--text-shadow-color), 0.012em -0.012em 0 var(--text-shadow-color),
+   0.018em -0.018em 0 var(--text-shadow-color), 0.024em -0.024em 0 var(--text-shadow-color), 
+   0.03em -0.03em 0 var(--text-shadow-color), 0.006em 0 0 currentcolor, 0.012em -0.006em 0 currentcolor, 0.018em -0.012em 0 currentcolor, 
+   0.024em -0.018em 0 currentcolor, 0.03em -0.024em 0 currentcolor, 0.036em -0.03em 0 currentcolor, 0.036em -0.036em 0 currentcolor;
+  perspective: 3em;
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  animation: movement var(--duration) cubic-bezier(0.65, 0, 0.35, 1) infinite;
+
+}
+
+@keyframes movement {
+  20% {
+    transform: scaleY(1.4) skew(10deg);
+  }
+
+  50% {
+    transform: scaleY(1) skew(0);
+  }
+
+  70% {
+    transform: scaleY(1.4) skew(-10deg);
+  }
+}
+
+@keyframes shadow {
+  20% {
+    transform: var(--transform-alt);
+  }
+
+  50% {
+    transform: var(--transform);
+  }
+
+  70% {
+    transform: var(--transform-alt);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
